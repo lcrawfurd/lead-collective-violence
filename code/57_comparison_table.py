@@ -273,7 +273,10 @@ L = [r"\begin{table}[H]",
      r" & Battery & Lead-specific gap & contrast & cells \\", r"\midrule"]
 for key, lab, _ in ROWS:
     r = R[key]
-    L.append(f"{lab} & {c(r['dd'])} & {c(r['gap'])} & {c(r['dddd'])} & {r['ntreat']} \\\\")
+    # DD stars use the clustered t-test; the gap and contrast use their wild bootstrap p
+    cg = f"{r['gap'][0]:.3f}{stars(r['gap_w'])}" if r["gap"] else ""
+    cd = f"{r['dddd'][0]:.3f}{stars(r['dddd_w'])}" if r["dddd"] else ""
+    L.append(f"{lab} & {c(r['dd'])} & {cg} & {cd} & {r['ntreat']} \\\\")
     L.append(f" & {s(r['dd'])} & {s(r['gap'])} & {s(r['dddd'])} & \\\\")
     if r["gap"]:
         L.append(f" & & {w(r['gap_w'])} & {w(r['dddd_w'])} & \\\\[2pt]")
@@ -297,7 +300,7 @@ for key, _, _ in ROWS:
         nm = {"dd": "DD", "gap": "Gap", "dddd": "DDDD"}[part]
         M[f"cmp{nm}{key}"] = f"{t[0]:.3f}"
         M[f"cmp{nm}{key}SE"] = f"{t[1]:.3f}"
-        M[f"cmp{nm}{key}Stars"] = stars(t[2])
+        M[f"cmp{nm}{key}Stars"] = stars(t[2] if part == "dd" else r[part + "_w"])
         if part != "dd":
             M[f"cmp{nm}{key}WildP"] = f"{r[part + '_w']:.3f}"
     M[f"cmpNTreat{key}"] = f"{r['ntreat']}"

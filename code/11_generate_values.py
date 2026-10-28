@@ -173,6 +173,15 @@ add("nBatNextAfrica", f"{int(_others.country.value_counts().max())}")   # larges
 _idn = tsip[tsip.country.astype(str).str.contains("Indonesia", case=False, na=False)]
 add("tsipIdnN", f"{len(_idn)}")
 add("tsipIdnBat", f"{int(_idn.SiteIndustry.astype(str).str.contains('Battery', case=False, na=False).sum())}")
+
+# ── Battery sites in the three study countries, by TSIP industry label ─────────
+# The code treats every TSIP site whose industry mentions "Battery" as a battery site.
+_b3 = _b[_b.country.astype(str).isin(["Kenya", "Ghana", "Senegal"])]
+_ind = _b3.SiteIndustry.astype(str)
+add("nBatSitesThree", f"{len(_b3)}")
+add("nBatRecycThree", f"{int((_ind == 'Lead - Battery Recycling').sum())}")
+add("nBatMfgThree", f"{int(_ind.str.contains('manufacturing or repair', case=False).sum())}")
+add("nBatOtherThree", f"{int(_ind.str.contains('not Lead Acid', case=False).sum())}")
 print(f"  battery sites in Africa: {len(_ab)} across {_ab.country.nunique()} countries")
 
 # ── Sub-Saharan Africa conflict burden (intro framing) ───────────────────────

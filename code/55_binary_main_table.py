@@ -89,7 +89,8 @@ for ycol, key, _ in OUTCOMES:
             c, s, p = r[k]
             M[f"bm{key}{tag}{k}"] = f"{c:.3f}"
             M[f"bm{key}{tag}{k}SE"] = f"{s:.3f}"
-            M[f"bm{key}{tag}{k}Stars"] = stars(p)
+            # Gaps have a wild bootstrap p (shown in brackets); their stars use it
+            M[f"bm{key}{tag}{k}Stars"] = stars(r["GapWildP"] if k == "Gap" else p)
         M[f"bm{key}{tag}GapWildP"] = f"{r['GapWildP']:.3f}"
         print(f"{key:8s} {cn:8s} bat {r['Bat'][0]:.3f} ({r['Bat'][1]:.3f})  nl {r['Nl'][0]:.3f} "
               f"({r['Nl'][1]:.3f})  gap {r['Gap'][0]:.3f} ({r['Gap'][1]:.3f}) p={r['Gap'][2]:.3f} "
@@ -102,7 +103,7 @@ for cn in ["Kenya", "Ghana", "Senegal", "Pooled"]:
     D4[cn] = (c, s_, p, wp)
     tag = dict(Kenya="Ke", Ghana="Gh", Senegal="Se", Pooled="Pooled")[cn]
     M[f"bmDDDD{tag}"] = f"{c:.3f}"; M[f"bmDDDD{tag}SE"] = f"{s_:.3f}"
-    M[f"bmDDDD{tag}Stars"] = stars(p); M[f"bmDDDD{tag}WildP"] = f"{wp:.3f}"
+    M[f"bmDDDD{tag}Stars"] = stars(wp); M[f"bmDDDD{tag}WildP"] = f"{wp:.3f}"
     print(f"DDDD     {cn:8s} {c:.3f} ({s_:.3f}) p={p:.3f} wild p={wp:.3f}")
 
 
@@ -125,7 +126,7 @@ def cellfmt(c, s, p):
 
 cols = ["Kenya", "Ghana", "Senegal", "Pooled"]
 L = [r"\begin{landscape}", r"\begin{table}[p]",
-     r"\caption{Main results: riots, protests and organised violence within 5\,km of a battery recycling site}",
+     r"\caption{Main results: riots, protests and organised violence within 5\,km of a battery site}",
      r"\label{tab:main}", r"\begin{threeparttable}", r"\footnotesize", r"\setlength{\tabcolsep}{5pt}", r"\renewcommand{\arraystretch}{0.92}",
      r"\begin{tabular}{lcccccccc}", r"\toprule",
      r" & \multicolumn{2}{c}{Kenya} & \multicolumn{2}{c}{Ghana} & \multicolumn{2}{c}{Senegal} & \multicolumn{2}{c}{Pooled} \\",
@@ -137,14 +138,14 @@ for _, key, title in OUTCOMES:
     L.append(r"\quad $\mathbf{1}[<5\,\text{km}] \times \text{Post}$ & " + " & ".join(x[0] for x in a) + r" \\")
     L.append(" & " + " & ".join(x[1] for x in a) + r" \\")
     # The gap spans both columns of its country; the s.e. and the wild bootstrap p share a line.
-    g = [cellfmt(*R[(key, c)]["Gap"]) for c in cols]
+    g = [cellfmt(*R[(key, c)]["Gap"][:2], R[(key, c)]["GapWildP"]) for c in cols]
     L.append(r"\quad Lead-specific gap & " + " & ".join(r"\multicolumn{2}{c}{" + x[0] + "}" for x in g) + r" \\")
     L.append(" & " + " & ".join(r"\multicolumn{2}{c}{" + f"{x[1]} [{R[(key, c)]['GapWildP']:.3f}]" + "}"
                                  for x, c in zip(g, cols)) + r" \\")
     L.append(r"\quad Pre-2007 mean, battery cells & " + " & ".join(
         r"\multicolumn{2}{c}{" + f"{R[(key, c)]['pre']:.3f}" + "}" for c in cols) + r" \\")
 L.append(r"\textit{Panel D: Riots minus organised violence} \\")
-d4 = [cellfmt(*D4[c][:3]) for c in cols]
+d4 = [cellfmt(D4[c][0], D4[c][1], D4[c][3]) for c in cols]
 L.append(r"\quad Riot gap $-$ organised-violence gap & " + " & ".join(r"\multicolumn{2}{c}{" + x[0] + "}" for x in d4) + r" \\")
 L.append(" & " + " & ".join(r"\multicolumn{2}{c}{" + f"{x[1]} [{D4[c][3]:.3f}]" + "}" for x, c in zip(d4, cols)) + r" \\")
 n_cells = {c: PAN[c].drop_duplicates("cell_id_str").shape[0] for c in cols}
@@ -170,7 +171,7 @@ save_to_overleaf("tab_main_binary.tex", str(TABLES / "tab_main_binary.tex"), sub
 # 44_plausibility.py reads. A missing one stops the build.
 KEEP = ["bmRiotKeGap", "bmRiotKeGapWildP", "bmRiotGhGap", "bmRiotGhGapWildP",
         "bmRiotSeGap", "bmRiotSeGapWildP", "bmRiotPooledBat", "bmRiotPooledNl", "bmRiotPooledGap",
-        "bmProtestPooledGap", "bmProtestPooledGapWildP", "bmOrgPooledGap",
+        "bmProtestPooledGap", "bmProtestPooledGapWildP", "bmOrgPooledGap", "bmOrgPooledGapWildP",
         "bmDDDDKe", "bmDDDDGh", "bmDDDDSe", "bmDDDDPooled", "bmDDDDPooledWildP",
         "nNlCells", "nBothCells"]
 missing = [k for k in KEEP if k not in M]
@@ -192,9 +193,8 @@ SUB = [("Riots", [("n_mob_violence", "Mob violence"), ("n_violent_demo", "Violen
                                ("n_vac_abduction", "VAC: abduction")]),
        ("Fatalities", [("fat_riots", "Any riot death")])]
 PP = PAN["Pooled"].copy()
-PP["n_battles"] = PP.n_org_violence - PP.n_vac_attack - PP.n_vac_abduction
 T = [r"\begin{table}[H]",
-     r"\caption{Riot, Protest and Organised-Violence Sub-Types within 5\,km of a Battery Recycling Site}",
+     r"\caption{Riot, protest and organised-violence sub-types within 5\,km of a battery site}",
      r"\label{tab:sub_events}", r"\begin{threeparttable}", r"\footnotesize",
      r"\begin{tabular}{lcccc}", r"\toprule",
      r" & Battery & Non-lead & Lead-specific gap & Pre-2007 mean \\", r"\midrule"]

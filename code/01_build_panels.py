@@ -13,7 +13,7 @@ Each panel contains:
   cell_id, year, cell_lat, cell_lon,
   inv_dist_battery, inv_dist_nonlead,
   post,
-  n_riots, n_protests, n_org_violence, n_mob_violence, n_vac,
+  n_riots, n_protests, n_org_violence, n_battles, n_mob_violence, n_vac,
   fat_riots,
   log_riots, log_protests, log_org_violence,
   log_mob_violence, log_vac,
@@ -173,6 +173,10 @@ def build_panel(acled, bat_sites, nl_sites, post_year):
     panel     = panel.merge(org_cnt, on=["cell_id","year"], how="left")
     panel["n_org_violence"]   = panel["n_org_violence"].fillna(0)
     panel["log_org_violence"] = np.log1p(panel["n_org_violence"])
+    # Battles alone (ACLED event type), for the appendix sub-type table
+    bat_cnt = acled[acled["event_type"] == "Battles"].groupby(["cell_id","year"]).size().reset_index(name="n_battles")
+    panel   = panel.merge(bat_cnt, on=["cell_id","year"], how="left")
+    panel["n_battles"] = panel["n_battles"].fillna(0)
 
     # ── Appendix sub-event breakdowns ─────────────────────────────────────────
     for sub_label, sub_type in [

@@ -96,7 +96,6 @@ for cn in COUNTRIES:
     p["nl5"] = (p.inv_dist_nonlead > THRESH_5KM).astype(float)
     p["bt"] = p.bat5 * p.post
     p["nt"] = p.nl5 * p.post
-    p["n_battles"] = (p.n_org_violence - p.n_vac_attack - p.n_vac_abduction).clip(lower=0)
     add_block(p, cn)
     PAN[cn] = p
 POOLED = pd.concat(PAN.values(), ignore_index=True)

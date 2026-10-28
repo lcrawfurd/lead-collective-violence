@@ -63,7 +63,7 @@ for lab, r in res.items():
 ax.axhline(0, color="#999999", lw=0.8, ls="--")
 ax.set_xticks(x)
 ax.set_xticklabels([f"{lo}-{hi}" for lo, hi in BANDS])
-ax.set_xlabel("Distance from a battery recycling site (km)")
+ax.set_xlabel("Distance from a battery site (km)")
 ax.set_ylabel("Change in Pr(any event) after 2007, vs cells > 20 km")
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)

@@ -306,7 +306,7 @@ def write_main_binary(bdd, bddd, bdddd, n_bin, n_treat_cells=None, n_cells=None)
         r" & Battery gradient & Lead-specific gap & Conflict-type contrast \\",
         r"\midrule",
         r"$\mathbf{1}[<5\,\text{km}] \times \text{Post (2007)}$ & "
-        + f"{c(bdd[0], bdd[2])} & {c(bddd[0], bddd[2])} & {c(bdddd[0], bdddd[2])}" + r" \\",
+        + f"{c(bdd[0], bdd[4])} & {c(bddd[0], bddd[3])} & {c(bdddd[0], bdddd[3])}" + r" \\",  # stars from the wild bootstrap p
         r" & " + f"{s(bdd[1])} & {s(bddd[1])} & {s(bdddd[1])}" + r" \\",
         r"Wild bootstrap $p$ & " + f"[{bdd[4]:.3f}] & [{bddd[3]:.3f}] & [{bdddd[3]:.3f}]" + r" \\[3pt]",
         r"Difference across & time, distance & $+$ site type & $+$ conflict type \\",

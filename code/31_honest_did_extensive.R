@@ -68,16 +68,25 @@ cross_zero <- function(df, xcol) {
 }
 rm_lb0   <- rm$lb[which.min(rm$Mbar)]      # lb at Mbar=0
 rm_cross <- cross_zero(rm, "Mbar")
+# The 0.1 grid only brackets the crossing; refine it in steps of 0.01 inside that bracket
+if (!is.na(rm_cross) && rm_cross > 0) {
+  rm_fine <- createSensitivityResults_relativeMagnitudes(
+    betahat = betahat, sigma = sigma,
+    numPrePeriods = n_pre, numPostPeriods = n_post,
+    Mbarvec = seq(rm_cross - 0.1 + 0.01, rm_cross, by = 0.01), l_vec = lvec
+  )
+  rm_cross <- cross_zero(rm_fine, "Mbar")
+}
 sd_lb0   <- sd$lb[which.min(sd$M)]
 sd_cross <- cross_zero(sd, "M")
 
-cat(sprintf("RM: lb at Mbar=0 is %.3f; crosses zero at Mbar ~ %.3f\n", rm_lb0, rm_cross))
+cat(sprintf("RM: lb at Mbar=0 is %.3f; crosses zero at Mbar = %.2f (0.01 grid)\n", rm_lb0, rm_cross))
 cat(sprintf("SD: lb at M=0   is %.3f; crosses zero at M    ~ %.3f\n", sd_lb0, sd_cross))
 
 # Save thresholds for macro generation
 writeLines(c(
   sprintf("rm_lb0=%.3f", rm_lb0),
-  sprintf("rm_cross=%.3f", rm_cross),
+  sprintf("rm_cross=%.2f", rm_cross),
   sprintf("sd_lb0=%.3f", sd_lb0),
   sprintf("sd_cross=%.3f", sd_cross)
 ), file.path(PANELS, paste0(PREFIX, "_extensive_results.txt")))

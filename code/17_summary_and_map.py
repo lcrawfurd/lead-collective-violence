@@ -269,7 +269,7 @@ def make_map(world):
     # Shared legend below all panels
     legend_elements = [
         mpatches.Patch(facecolor='#cc2222', edgecolor='#800000',
-                       label='Battery recycling site'),
+                       label='Battery site'),
         mpatches.Patch(facecolor='#999999', edgecolor='#666',
                        label='Non-lead comparison site'),
         plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='#2244bb',

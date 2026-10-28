@@ -73,7 +73,7 @@ L = [r"\begin{table}[H]", r"\caption{Placebo Test: Fake Onset in 2002 (Lead-Spec
 for key, title, _ in PANELS_:
     L.append(r"\multicolumn{5}{l}{\textit{" + title + r"}} \\[2pt]")
     L.append(r"\quad Lead-specific gap & " + " & ".join(
-        f"{R[(key, c)][0]:.3f}{stars(R[(key, c)][2])}" for c in COLS) + r" \\")
+        f"{R[(key, c)][0]:.3f}{stars(R[(key, c)][3])}" for c in COLS) + r" \\")  # stars from the wild bootstrap p
     L.append(" & " + " & ".join(f"({R[(key, c)][1]:.3f})" for c in COLS) + r" \\")
     L.append(r"\quad Wild bootstrap $p$ & " + " & ".join(
         f"[{R[(key, c)][3]:.3f}]" for c in COLS) + r" \\[4pt]")
