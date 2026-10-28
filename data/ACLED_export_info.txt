@@ -1,0 +1,5 @@
+ACLED export downloaded 2026-10-22 via https://acleddata.com/api/acled/read
+Years 1997-2024, all countries, 2,469,574 events
+Ghana: 2,657 events
+Kenya: 16,446 events
+Senegal: 2,083 events

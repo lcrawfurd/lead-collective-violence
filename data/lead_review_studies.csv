@@ -1,0 +1,44 @@
+study_id,authors,year,short_cite,exposure_source,outcome_category,outcome_detail,country,country_income,journal_or_status,study_design,mean_bll_mcg_dL
+1,Clay et al.,2019,Clay et al. 2019,Leaded petrol,IQ and Test scores,Infant cognitive function,United States,High-income,Economics & Human Biology,DiD,BLL not measured
+2,Gronqvist et al.,2020,Gronqvist et al. 2020,Leaded petrol,IQ and Test scores,Children's education / school completion,Sweden,High-income,Journal of Political Economy,DiD (sibling FE),~5 (equivalent environmental)
+3,Hollingsworth et al.,2022,Hollingsworth et al. 2022,Leaded petrol,IQ and Test scores,Student test scores,United States,High-income,Working Paper,DiD,BLL not measured
+4,Keyes,2023,Keyes 2023,Leaded petrol,IQ and Test scores,Student test scores,United States,High-income,Working Paper,DiD,BLL not measured
+5,Aizer and Currie,2019,Aizer & Currie 2019,Leaded petrol,Crime and Behavior,Juvenile delinquency,United States,High-income,Review of Economics and Statistics,DiD (individual linked),~4
+6,Reyes,2007,Reyes 2007,Leaded petrol,Crime and Behavior,Crime rates,United States,High-income,B.E. Journal of Economic Analysis & Policy,IV (state gasoline lead),BLL not measured
+7,Reyes,2015,Reyes 2015a,Leaded petrol,Crime and Behavior,Antisocial and risky behavior,United States,High-income,Economic Inquiry,IV,TBD
+8,Schwaba et al.,2021,Schwaba et al. 2021,Leaded petrol,Crime and Behavior,Personality,United States / Europe,High-income,PNAS,DiD,~13 (1970s population avg)
+9,Curci and Masera,2023,Curci & Masera 2023,Leaded petrol,Crime and Behavior,Crime rates and suburbanization,United States,High-income,Review of Economics and Statistics,DiD,BLL not measured
+10,Du and Taylor,2024,Du & Taylor 2024,Leaded petrol,Health,Fertility,44 developing countries,Mixed,SSRN Working Paper,DiD,BLL not measured
+11,Hollingsworth and Rudik,2021,Hollingsworth & Rudik 2021,Leaded petrol,Health,Elderly mortality,United States,High-income,AEJ: Economic Policy,DiD,BLL not measured
+12,Ipapa,2023,Ipapa 2023,Polluted sites,IQ and Test scores,Student test scores (primary school leaving exams),Kenya,Lower-middle-income,Working Paper,DiD,BLL not measured
+13,Litzow et al.,2024,Litzow et al. 2024,Polluted sites,IQ and Test scores,Student test scores,Mexico,Upper-middle-income,Working Paper,DiD,BLL not measured
+14,Rau et al.,2015,Rau et al. 2015,Polluted sites,IQ and Test scores,Student test scores,Chile,High-income,JAERE,DiD,BLL not measured
+15,Clay et al.,2022,Clay et al. 2022,Polluted sites,Health,Infant mortality,United States,High-income,Working Paper,IV (wind direction),BLL not measured
+16,Tanaka et al.,2022,Tanaka et al. 2022,Polluted sites,Health,Birth weight,Mexico,Upper-middle-income,American Economic Review: Insights,DiD,BLL not measured
+17,Mahzab et al.,2024,Mahzab et al. 2024,Polluted sites,Health,Terminated pregnancies,Bangladesh,Lower-middle-income,Working Paper,DiD,BLL not measured
+18,Ferrie et al.,2012,Ferrie et al. 2012,Lead water pipes,IQ and Test scores,Intelligence test scores (WWII enlistees),United States,High-income,Economics & Human Biology,Cross-sectional (pipes x water chemistry),BLL not measured
+19,Higney et al.,2022,Higney et al. 2022,Lead water pipes,IQ and Test scores,Human capital formation,Scotland,High-income,Working Paper,DiD (phosphate treatment x pipes),BLL not measured
+20,Lee et al.,2022,Lee et al. 2022,Lead water pipes,IQ and Test scores,Elderly cognition,United States,High-income,Science Advances,Cross-sectional / IV,BLL not measured
+21,Sauve-Syed,2023,Sauve-Syed 2023,Lead water pipes,IQ and Test scores,Student achievement,United States,High-income,Working Paper,TBD,TBD
+22,Trejo et al.,2024,Trejo et al. 2024,Lead water pipes,IQ and Test scores,Educational outcomes (Flint),United States,High-income,Science Advances,DiD (Flint water crisis),TBD
+23,Clay et al.,2014,Clay et al. 2014,Lead water pipes,Health,Infant mortality,United States,High-income,Review of Economics and Statistics,Cross-sectional (pipes x water chemistry),BLL not measured
+24,Dave and Yang,2022,Dave & Yang 2022,Lead water pipes,Health,Birth outcomes,United States,High-income,NBER Working Paper,DiD (Newark water crisis),BLL not measured
+25,Feigenbaum and Muller,2016,Feigenbaum & Muller 2016,Lead water pipes,Crime and Behavior,Homicide rates,United States,High-income,Explorations in Economic History,IV (iron mine proximity) + pipes x water chemistry,BLL not measured
+26,Fletcher and Noghanibehambari,2023,Fletcher & Noghanibehambari 2023,Lead water pipes,Health,Longevity / old-age mortality,United States,High-income,Working Paper,Cross-sectional / IV,BLL not measured
+27,Grossman and Slusky,2019,Grossman & Slusky 2019,Lead water pipes,Health,Fertility (Flint),United States,High-income,Demography,DiD (Flint water crisis),TBD
+28,Troesken,2008,Troesken 2008,Lead water pipes,Health,Infant mortality,United States,High-income,Journal of Human Resources,Cross-sectional (pipes x water chemistry),BLL not measured
+29,Aizer et al.,2018,Aizer et al. 2018,Home remediation,IQ and Test scores,Reading proficiency (3rd grade),United States,High-income,Working Paper,IV (predicted certificate),TBD
+30,Billings and Schnepel,2018,Billings & Schnepel 2018,Home remediation,IQ and Test scores / Crime and Behavior,Educational and behavioral outcomes,United States,High-income,AEJ: Applied Economics,RD (BLL threshold ~10),~10 (at threshold)
+31,Reyes,2015,Reyes 2015b,Home remediation,IQ and Test scores,Student test scores,United States,High-income,Harvard Educational Review,DiD (school-cohort panel),TBD
+32,Sorensen et al.,2019,Sorensen et al. 2019,Home remediation,IQ and Test scores,Test scores / racial gaps,United States,High-income,Journal of Population Economics,IV (grant rollout timing),TBD
+33,Berkhout et al.,2025,Berkhout et al. 2025,Polluted sites,IQ and Test scores,Cognitive skills (numeracy and Raven's),Indonesia,Upper-middle-income,ADB Economics Working Paper,DiD (age x distance),BLL not measured
+34,Chin et al.,2026,Chin et al. 2026,Leaded petrol,IQ and Test scores,Later-in-life cognitive ability (ASVAB),United States,High-income,SSRN Working Paper,DiD (state-level petrol phase-out variation),BLL not measured
+35,Banzhaf and Banzhaf,2023,Banzhaf & Banzhaf 2023,Leaded petrol,IQ and Test scores,Adult earnings / education / employment / disabilities,United States,High-income,PLOS ONE,DiD (county FE + county trends),BLL not measured
+36,Frye and Kagy,2025,Frye & Kagy 2025,Lead water pipes,IQ and Test scores,Adult wages / employment / occupational status,United States,High-income,Working Paper,Cross-sectional (pipes x water chemistry),BLL not measured
+37,Gazze Persico and Spirovska,2024,Gazze et al. 2024,Peer effects (BLL screening),IQ and Test scores,HS graduation / SAT-taking / suspensions / absences,United States,High-income,Journal of Labor Economics,Sibling comparison (peer BLL composition),~5 (peer avg)
+38,Hiwatari et al.,2024,Hiwatari et al. 2024,Polluted sites,IQ and Test scores,Household consumption / poverty / schooling,Zambia,Lower-middle-income,Ecological Economics,IV (soil lead concentration),measured (Kabwe)
+39,Higney et al.,2025,Higney et al. 2025,Lead water pipes,Health,Birthweight / under-5 mortality,Scotland,High-income,Environmental and Resource Economics,DiD (phosphate x pipes),BLL not measured
+40,Du and Zhang,2024,Du & Zhang 2024,Adulterated spices,"Crime, Behaviour, and Personality",Conflicts / fertility,Bangladesh,Lower-middle-income,SSRN Working Paper,DiD (2018 turmeric policy),BLL not measured
+41,Zhu et al.,2019,Zhu et al. 2019,Mendelian Randomization,Health,Coronary artery disease / blood pressure / diabetes,International (GWAS),High-income,Scientific Reports,MR (13 SNPs for BLL),lifetime genetic exposure
+42,Yang et al.,2024,Yang et al. 2024,Mendelian Randomization,Health,Sleep disorders,United States (NHANES),High-income,Journal of Epidemiology and Global Health,MR (genetic instruments),lifetime genetic exposure
+43,Bui et al.,2022,Bui et al. 2022,Leaded petrol,Health,Birthweight / preterm / low birthweight,United States,High-income,Environment International,DiD (NASCAR 2007 deleading),measured (in utero air lead via NASCAR proximity)

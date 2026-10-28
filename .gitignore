@@ -1,0 +1,14 @@
+# Data that cannot be redistributed (download per README)
+data/ACLED_global.csv
+data/acled_kenya.csv
+data/acled_ghana.csv
+data/DHS/
+data/toxic_truth_unicef_pure_earth_2020.pdf
+# Outputs are rebuilt by run_all.sh (some contain ACLED-derived rows)
+output/
+# Python / OS clutter
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+.Rhistory
