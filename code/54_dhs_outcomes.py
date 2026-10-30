@@ -3,7 +3,7 @@
 Kenya, Ghana and Senegal, before and after 2007.
 
 Rounds: Kenya 2003 | 2008-09, 2014, 2022; Ghana 2003 | 2008, 2014, 2022;
-Senegal 2005 | 2010-11, 2015, 2019. All files in data/DHS.
+Senegal 2005 | 2010-11, 2015, 2019. All files in PUBLIC_DATA/DHS (see config.py).
 
 Each DHS cluster is assigned by distance from its (displaced) GPS point: within 5 km of a
 battery recycling site ("battery"), within 5 km of another toxic site only ("other"). The
@@ -26,9 +26,9 @@ import pandas as pd
 import geopandas as gpd
 import pyfixest as pf
 
-from config import DATA, TABLES, PANELS, TSIP_PATH, save_to_overleaf
+from config import DATA, TABLES, PANELS, TSIP_PATH, DHS_DIR, save_to_overleaf
 
-DHS = DATA / "DHS"
+DHS = DHS_DIR
 
 
 def one(pattern):

@@ -16,6 +16,13 @@ FIGURES   = OUTPUT / "figures"
 TABLES    = OUTPUT / "tables"
 CODE      = PROJECT / "code"
 
+# Downloaded public data shared across projects. DHS lives here, not in data/.
+# Set the PUBLIC_DATA environment variable to point elsewhere (e.g. a replication run).
+PUBLIC_DATA = Path(os.environ.get(
+    "PUBLIC_DATA",
+    Path.home() / "Library/CloudStorage/Dropbox/0 - Inbox/6_Reference/Public data"))
+DHS_DIR   = PUBLIC_DATA / "DHS"
+
 # Ensure output subdirectories exist
 for _d in (PANELS, FIGURES, TABLES):
     _d.mkdir(parents=True, exist_ok=True)

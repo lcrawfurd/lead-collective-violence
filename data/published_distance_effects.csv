@@ -1,0 +1,9 @@
+country,study,outcome,distance_km,distance_type,estimate,se,source
+Kenya,"Ipapa (2026), The Hidden Costs of Recycling, working paper July 2026",KCPE test score (SD),2,within (vs 10-20 km),-0.3825,0.130,Table 3 col 1
+Kenya,"Ipapa (2026), The Hidden Costs of Recycling, working paper July 2026",KCPE test score (SD),4,within (vs 10-20 km),-0.1834,0.091,Table 2 col 4 (main)
+Kenya,"Ipapa (2026), The Hidden Costs of Recycling, working paper July 2026",KCPE test score (SD),6,within (vs 10-20 km),-0.0706,0.088,Table 2 col 3
+Kenya,"Ipapa (2026), The Hidden Costs of Recycling, working paper July 2026",KCPE test score (SD),8,within (vs 10-20 km),-0.0854,0.098,Table 2 col 2
+Kenya,"Ipapa (2026), The Hidden Costs of Recycling, working paper July 2026",KCPE test score (SD),10,within (vs 10-20 km),-0.0678,0.093,Table 2 col 1
+Indonesia,"Berkhout et al. (2025), ADB Economics Working Paper 774",Numeracy (SD),3,band 0-3 km (vs beyond 6 km),-0.48,0.15,Table 6 col 2
+Indonesia,"Berkhout et al. (2025), ADB Economics Working Paper 774",Numeracy (SD),6,band 3-6 km (vs beyond 6 km),-0.24,0.12,Table 6 col 2
+Mexico,"Litzow et al. (2026), Toxic Recycling, working paper May 2026",Math test score (SD),8.05,within 5 miles (vs 5-30 miles),-0.0266,0.00628,Table 1 panel A col 4 (preferred)

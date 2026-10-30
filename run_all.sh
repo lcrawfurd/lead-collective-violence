@@ -14,7 +14,7 @@
 #   pip install -r requirements.txt
 #   R with HonestDiD, Matrix, ggplot2 and patchwork (step 31, called by 47; required)
 #   poppler (pdftotext, used by 45)
-#   ACLED and DHS data and the UNICEF report in data/ (see README)
+#   ACLED data and the UNICEF report in data/; DHS in PUBLIC_DATA/DHS (see README)
 
 set -e  # Stop on first error
 
@@ -113,6 +113,8 @@ echo ">>> 60: Balance table..."
 python3 60_balance_table.py
 echo ">>> 61: Raw riot rates by distance group (paper figure)..."
 python3 61_raw_rates_figure.py
+echo ">>> 62: Published effects by distance (Figure A10b)..."
+python3 62_published_effects.py
 
 # 31_honest_did_extensive.R is called by 47_slides_binary.py (needs R + HonestDiD).
 

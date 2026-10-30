@@ -38,8 +38,9 @@ included in this package are redistributed under the licences listed below.
 | Country boundaries (map) | Natural Earth 1:110m admin-0 countries | `ne_110m_admin_0_countries.zip` | Yes | Public domain |
 | Vehicle sales | OICA new vehicle sales by country | `total_sales_2018.xlsx` | Yes | Published by OICA |
 | Commodity prices | World Bank Commodity Price Data (Pink Sheet), annual, real 2010 US$ | `wb_lead_food_prices.csv` | Yes | CC BY 4.0 |
-| Blood lead near battery sites | Crawfurd et al. (2026), *Beyond Hotspots* replication files: soil samples, AALM lookup table, ring estimates, and the published-effects figure used as Figure A10(b) (`ulab_quasi_meta.png`, a static image from that paper) | `beyond_hotspots/` | Yes | Author's own |
+| Blood lead near battery sites | Crawfurd et al. (2026), *Beyond Hotspots* replication files: soil samples, AALM lookup table, ring estimates | `beyond_hotspots/` | Yes | Author's own |
 | Background blood lead | IHME Global Burden of Disease 2023 | `beyond_hotspots/IHME_GBD_2023_LEAD_RISK_*.CSV` | Yes | IHME free-of-charge non-commercial licence |
+| Published effects of battery recycling on test scores by distance (Figure A10b) | Ipapa (2026), Berkhout et al. (2025), Litzow et al. (2026); table and column for each value in the file | `published_distance_effects.csv` | Yes | Author's compilation |
 | Published riot and conflict effect sizes (Section 6 benchmarks) | McGuirk and Burke (2020), Hsiang, Burke and Miguel (2013); citation and table location for each value in the file | `literature_benchmarks.csv` | Yes | Author's compilation |
 | Slides only: causal lead studies | Author's literature review | `lead_review_studies.csv` | Yes | Author's own |
 | Slides only: child blood lead by region | UNICEF and Pure Earth (2020), *The Toxic Truth*; World Bank population aged 0–19, 2019 | `toxic_truth_unicef_pure_earth_2020.pdf` (not included: download from https://www.unicef.org/reports/toxic-truth-childrens-exposure-to-lead-pollution-2020 and save under this name), `wb_pop0_19_2019.csv` (included) | Report: No. Population: Yes | UNICEF copyright; World Bank data CC BY 4.0 |
@@ -76,7 +77,8 @@ The sample runs from 1997 to 2024 (`END_YR` in `code/config.py`). ACLED's standa
 3. Install poppler, which provides `pdftotext` (used by `45`): `brew install poppler` on
    macOS, `apt install poppler-utils` on Debian or Ubuntu.
 4. Run `code/00_download_acled.py` (see Sample period), place the DHS files at the paths in
-   the table above, and download the UNICEF report. `run_all.sh` stops at the first missing
+   the table above (inside the folder set by `PUBLIC_DATA` in `code/config.py`, or the
+   `PUBLIC_DATA` environment variable), and download the UNICEF report. `run_all.sh` stops at the first missing
    input, so all three are needed for a complete run.
 5. Run, from the package root:
    ```bash
@@ -124,7 +126,7 @@ Exhibit numbers are those in the paper. Unnumbered exhibits are in the slides on
 | Table A7 | Placebo test: fake onset in 2002 | `tab_placebo.tex` | `58_placebo_table.py` |
 | Table A8 | Changes in other outcomes after 2007 | `tab_balance_changes.tex` | `60_balance_table.py` (DHS rows from `54_dhs_outcomes.py`) |
 | Figure A9, Table A9 | Lead and food prices | `fig_prices.pdf`, `tab_price_placebo.tex` | `38_price_placebo.py` |
-| Figure A10 | Soil lead and published effects by distance | `ulab_soil_decay.pdf`; `ulab_quasi_meta.png` | `48_slides_soil_decay.py`; panel (b) is a static image from Crawfurd et al. (2026), in `data/beyond_hotspots/` |
+| Figure A10 | Soil lead and published effects by distance | `ulab_soil_decay.pdf`; `fig_published_effects.pdf` | `48_slides_soil_decay.py`; `62_published_effects.py` |
 | Figure A11 | Distance rings by country | `fig_binary_distance_extensive.pdf` | `30_extensive_margin_figures.py` |
 | Figure A12 | Event study by distance band | `eventstudy_by_band.png` | `02_did_analysis.py` |
 | Figure A13 | Event-level distance rings | `fig_site_rings.pdf` | `56_site_rings.py` |
@@ -149,7 +151,7 @@ Exhibit numbers are those in the paper. Unnumbered exhibits are in the slides on
    `trigger_classified.csv`, read by `47`).
 5. Inference and robustness: `05`, `10`, `12`, `22`, `28`, `32`, `33`, `35`, `37`, `38`,
    `47` (calls `31_honest_did_extensive.R`), `48`, `49`, `50`, `51`, `54` (writes
-   `dhs_outcomes.csv`, read by `60`), `55`, `56`, `57`, `58`, `59`, `60`, `61`.
+   `dhs_outcomes.csv`, read by `60`), `55`, `56`, `57`, `58`, `59`, `60`, `61`, `62`.
 6. `11_generate_values.py`, then `41` (reads `generated_values.tex`) and `44` (reads
    `binary_main_values.tex`).
 
