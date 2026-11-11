@@ -1,5 +1,5 @@
 #!/bin/bash
-# Master run-all script for "Lead Exposure and Collective Violence: Evidence from Informal
+# Master run-all script for "Lead Exposure and Collective Violence: Evidence from Unsafe
 # Battery Recycling in Africa"
 # Usage: cd lead-crime && bash run_all.sh
 #

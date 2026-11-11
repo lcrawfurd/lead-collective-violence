@@ -1,4 +1,4 @@
-# Replication package: Lead Exposure and Collective Violence: Evidence from Informal Battery Recycling in Africa
+# Replication package: Lead Exposure and Collective Violence: Evidence from Unsafe Battery Recycling in Africa
 
 Lee Crawfurd, Center for Global Development (lcrawfurd@cgdev.org)
 
